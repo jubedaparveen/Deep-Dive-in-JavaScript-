@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+          }
+
+          body {
+               font-family: Arial, sans-serif;
+               background-color: #0c0b0b;
+               height: 100vh;
+          }
+           h1 {
+               margin-bottom: 20px;
+          }
+
+
+          #maindiv {
+               background-color: #0c0b0b;
+               color: white;
+               text-align: center;
+               padding: 20px;
+                  
+          }
+          #containerdiv{
+               display: flex;
+               gap: 30px;
+          }
+          #input-section {
+               width: 50%;
+               height: 100%;
+               padding: 20px;
+               box-shadow: 0 0 10px rgba(248, 240, 240, 0.332);
+               /* margin-bottom: 20px; */
+          }
+          input {
+               padding: 10px;
+               width:85%;
+               margin-right: 10px;
+          }
+          #list-section {
+               width: 50%;
+               height: 100%;
+               padding: 20px;
+               box-shadow: 0 0 10px rgba(248, 240, 240, 0.332);
+               overflow-y: auto; 
+          }
+          #li-section {
+               display: flex;
+               justify-content: space-between;
+               padding: 0px 0px 0px 10px;
+               margin-bottom: 10px;
+          }
+          #delbtn {
+               padding: 5px 10px;
+               background-color: #dc3545;
+               color: white;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+          }
+          #delbtn:hover {
+               background-color: #c82333;
+          }
+          button {
+               padding: 10px 20px;
+               background-color: #007BFF;
+               color: white;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+          }
+          button:hover {
+               background-color: #0056b3;
+          }
+          #li-sect {
+               padding: 10px;
+               font-size: 20px;
+               color: white;
+               width: 90%;
+               border-radius: 5px;
+               margin-bottom: 5px;
+               text-align: left;
+          }
+     </style>
+</head>
+
+<body>
+     <div id="maindiv">
+          <h1>To Do Programme</h1>
+          <div id="containerdiv">
+               <div id="input-section">
+                    <div>
+                         <input type="text" id="todo-input" placeholder="Enter a todo item here...">
+                    <button id="add-btn">Add</button>
+                    </div>
+                    <div style="margin-top: 10px; text-align: left; margin: 30px 20px">
+                         <h2> Important Instruction </h2>
+                         <ul id="todoli" style="list-style-type: none; margin: 30px 0px 0px 0px;">
+                              <li> Add things in To Do list</li>
+                         </ul>
+                    </div>
+               </div>
+               <div id="list-section">
+                    <ul id="todo-list" style="text-align:left; ">
+                         
+                    </ul>
+               </div>
+          </div>
+     </div>
+
+
+     <script>
+          const addBtn = document.getElementById('add-btn');
+          const todoInput = document.getElementById('todo-input');
+
+          const todoList = document.getElementById('todo-list');
+
+          // addBtn.addEventListener('click', function(){
+          //      const todotext = todoInput.value.trim(); // get the value from input and trim it to remove extra spaces
+
+          //      const toDOli = document.createElement('li'); // create a new li element
+          //      toDOli.innerText = todotext; //<li>{value aa gai}</li>
+
+          //      todoList.appendChild(toDOli); // <ul><li>{value ko rakh di on place}</li></ul>
+          //      todoInput.value = '';
+
+          //      toDOli.addEventListener('click', function(){
+          //           toDOli.remove();
+          //      })
+
+          // })
+
+          addBtn.addEventListener('click', () => {
+               const todoText = todoInput.value.trim();
+               if (todoText !== '') {
+                    const newTodo = document.createElement('div');
+                    newTodo.id = 'li-section';
+                    newTodo.innerHTML = `
+                         <li id="li-sect">${todoText}</li>
+                         <button id="delbtn">X</button>
+                    `;
+                    todoList.appendChild(newTodo);
+                    todoInput.value = '';
+
+                    const delBtn = newTodo.querySelector('#delbtn');
+                    delBtn.addEventListener('click', () => {
+                         todoList.removeChild(newTodo);
+                    });
+               }
+          });
+     </script>
+</body>
+
+</html>
