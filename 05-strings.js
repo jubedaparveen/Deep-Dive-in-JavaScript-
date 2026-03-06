@@ -38,8 +38,8 @@ console.log(result); // Output: "The sum of 5 and 10 is 15." // In this example,
 
 
 // Spread operator with strings
-const str2 = "Spread";
-const chars = [...str2];
+const strr2 = "Spread";
+const chars = [...strr2];
 console.log(chars); // Output: ['S', 'p', 'r', 'e', 'a', 'd'] // The spread operator can be used to convert a string into an array of its individual characters. In this case, the string "Spread" is spread into an array of characters, resulting in ['S', 'p', 'r', 'e', 'a', 'd'].
 
 
