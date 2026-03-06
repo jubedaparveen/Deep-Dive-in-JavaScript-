@@ -1,0 +1,71 @@
+
+
+const arr = [1, 2, 3];
+
+console.log(arr); // Output: [1, 2, 3]
+console.log(...arr); // Output: 1 2 3
+
+// Spread operator to create a new array
+const newArr = [...arr, 4, 5]; // This creates a new array by spreading the elements of 'arr' and adding 4 and 5 at the end
+console.log(newArr); // Output: [1, 2, 3, 4, 5]
+
+// Spread operator to create a new object
+const obj = { a: 1, b: 2 };
+const newObj = { ...obj, c: 3 };
+console.log(newObj); // Output: { a: 1, b: 2, c: 3 }
+
+// Spread operator to copy an array
+const copiedArr = [...arr];
+console.log(copiedArr); // Output: [1, 2, 3]
+
+// Spread operator to copy an object
+const copiedObj = { ...obj };
+console.log(copiedObj); // Output: { a: 1, b: 2 }
+
+// Spread operator to merge arrays
+const arr1 = [1, 2];
+const arr2 = [3, 4];
+const mergedArr = [...arr1, ...arr2];
+console.log(mergedArr); // Output: [1, 2, 3, 4]
+
+// Spread operator to merge objects
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+const mergedObj = { ...obj1, ...obj2 };
+console.log(mergedObj); // Output: { a: 1, b: 2, c: 3, d: 4 }
+
+// Spread operator in function calls
+function sum(x, y, z) {
+  return x + y + z;
+}
+const numbers = [1, 2, 3];
+console.log(sum(...numbers)); // Output: 6 // This calls the 'sum' function with the elements of 'numbers' as individual arguments
+
+// Spread operator to convert a string into an array of characters
+const str = "Hello";
+const chars = [...str];
+console.log(chars); // Output: ['H', 'e', 'l', 'l', 'o']
+
+// Spread operator to create a new array with additional elements
+const originalArray = [1, 2, 3];
+const extendedArray = [...originalArray, 4, 5];
+console.log(extendedArray); // Output: [1, 2, 3, 4, 5]
+
+// Spread operator to create a new object with additional properties
+const originalObject = { a: 1, b: 2 };
+const extendedObject = { ...originalObject, c: 3, d: 4 };
+console.log(extendedObject); // Output: { a: 1, b: 2, c: 3, d: 4 }
+
+// Spread operator to create a new array by combining multiple arrays
+const array1 = [1, 2];
+const array2 = [3, 4];
+const combinedArray = [...array1, ...array2];
+console.log(combinedArray); // Output: [1, 2, 3, 4]
+
+// how slice and spread operator are different
+const original = [1, 2, 3, 4, 5];
+const sliced = original.slice(1, 4); // This creates a new array containing elements from index 1 to index 3 (not including index 4)
+console.log(sliced); // Output: [2, 3, 4]
+
+const spread = [...original.slice(1, 4)]; // This creates a new array containing elements from index 1 to index 3 (not including index 4)
+console.log(spread); // Output: [2, 3, 4]

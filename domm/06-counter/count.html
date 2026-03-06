@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Counter App</title>
+
+     <style>
+            * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+            }
+            body {
+               font-family: Arial, sans-serif;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               height: 100vh;
+               background-color: #f0f0f0;
+            }
+            .counter-container {
+               background: #fff;
+               padding: 30px;
+               border-radius: 8px;
+               box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+               text-align: center;
+            }
+            h1 {
+               margin-bottom: 20px;
+            }
+            #count {
+               font-size: 2rem;
+               margin-bottom: 20px;
+            }
+            .buttons button {
+               width: 60px;
+               height: 40px;
+               margin: 0 10px;
+               font-size: 1rem;
+               cursor: pointer;
+            }
+     </style>
+</head>
+<body>
+     <div class="counter-container">
+        <h1>Counter App</h1>
+        <div id="count">0</div>
+
+        <div class="buttons">
+            <button id="decreaseBtn">-</button>
+            <button id="resetBtn">Reset</button>
+            <button id="increaseBtn">+</button>
+        </div>
+    </div>
+
+    <script>
+          const count = document.getElementById('count');
+          const decreaseBtn = document.getElementById('decreaseBtn');
+          const resetBtn = document.getElementById('resetBtn');
+          const increaseBtn = document.getElementById('increaseBtn');
+
+          decreaseBtn.addEventListener('click', () => {
+               count.textContent = parseInt(count.textContent) - 1; 
+               // parseInt converts the text content to a number 
+               // before performing the arithmetic operation
+          });
+          resetBtn.addEventListener('click', () => {
+               count.textContent = 0;
+          });
+          increaseBtn.addEventListener('click', () => {
+               count.textContent = parseInt(count.textContent) + 1; 
+          });
+    </script>
+</body>
+</html>

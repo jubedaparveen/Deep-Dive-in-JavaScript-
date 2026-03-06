@@ -82,34 +82,56 @@
           <input type="text" id="display" readonly>
 
           <div class="buttons">
-               <button onclick="clearDisplay()">C</button>
-               <button onclick="deleteLast()">⌫</button>
-               <button onclick="appendValue('%')">%</button>
-               <button onclick="appendValue('/')">÷</button>
+               <button id="clearBtn" >C</button>
+               <button id="backspaceBtn" >⌫</button>
+               <button id="percentageBtn" >%</button>
+               <button id="divideBtn" >÷</button>
 
-               <button onclick="appendValue('7')">7</button>
-               <button onclick="appendValue('8')">8</button>
-               <button onclick="appendValue('9')">9</button>
-               <button onclick="appendValue('*')">×</button>
+               <button id="sevenBtn" >7</button>
+               <button id="eightBtn" >8</button>
+               <button id="nineBtn" >9</button>
+               <button id="multiplyBtn" >×</button>
 
-               <button onclick="appendValue('4')">4</button>
-               <button onclick="appendValue('5')">5</button>
-               <button onclick="appendValue('6')">6</button>
-               <button onclick="appendValue('-')">−</button>
+               <button id="fourBtn" >4</button>
+               <button id="fiveBtn" >5</button>
+               <button id="sixBtn" >6</button>
+               <button id="subtractBtn" >−</button>
 
-               <button onclick="appendValue('1')">1</button>
-               <button onclick="appendValue('2')">2</button>
-               <button onclick="appendValue('3')">3</button>
-               <button onclick="appendValue('+')">+</button>
+               <button id="oneBtn" >1</button>
+               <button id="twoBtn" >2</button>
+               <button id="threeBtn" >3</button>
+               <button id="addBtn" >+</button>
 
-               <button onclick="appendValue('0')" class="zero">0</button>
-               <button onclick="appendValue('.')">.</button>
-               <button onclick="calculate()" class="equal">=</button>
+               <button id="zeroBtn"  class="zero">0</button>
+               <button id="decimalBtn" >.</button>
+               <button id="equalBtn"  class="equal">=</button>
           </div>
      </div>
 
      <script>
+          const display = document.getElementById('display');
+          const buttons = document.querySelectorAll('.buttons button');
 
+          buttons.forEach(button => {
+               button.addEventListener('click', () => {
+                    const value = button.textContent;
+
+                    if (value === 'C') {
+                         display.value = '';
+                    } else if (value === '⌫') {
+                         display.value = display.value.slice(0, -1);
+                    } else if (value === '=') {
+                         try {
+                              const result = eval(display.value.replace(/÷/g, '/').replace(/×/g, '*').replace(/−/g, '-'));
+                              display.value = result;
+                         } catch (error) {
+                              display.value = 'Error';
+                         }
+                    } else {
+                         display.value += value;
+                    }
+               });
+          });
      </script>
 </body>
 
