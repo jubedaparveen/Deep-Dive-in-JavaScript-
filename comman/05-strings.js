@@ -1,4 +1,34 @@
 // Strings in JavaScript
+console.log('hello'.substring(1, 4))
+console.log('hello'.substr(0, 3))
+
+const greetings = "Hello, World!";
+console.log(greetings.length); // Output: 13
+console.log(greetings[0]); // Output: "H"
+console.log(greetings.charAt(0)); // Output: "H" 
+console.log(greetings.indexOf("World")); // Output: 7
+console.log(greetings.lastIndexOf("l")); // Output: 10
+console.log(greetings.slice(0, 5)); // Output: "Hello"
+console.log(greetings.substring(7, 12)); // Output: "World"
+console.log(greetings.toLowerCase()); // Output: "hello, world!"
+console.log(greetings.toUpperCase()); // Output: "HELLO, WORLD!"
+console.log(greetings.trim()); // Output: "Hello, World!"
+console.log(greetings.split(",")); // Output: ["Hello", " World!"]
+console.log(greetings.replace("World", "JavaScript")); // Output: "Hello, JavaScript!"
+// Template literals in JavaScript
+const namee = "Alice";
+const agee = 30;
+const greetingg = `Hello, my name is ${namee} and I am ${agee} years old.`;
+console.log(greetingg); // Output: "Hello, my name is Alice and I am 30 years old."
+// String interpolation using template literals
+const aa = 5;
+const bb = 10;
+const resultt = `The sum of ${aa} and ${bb} is ${aa + bb}.`;
+console.log(resultt); // Output: "The sum of 5 and 10 is 15."
+// Spread operator with strings
+const strr = "Spread";
+const charss = [...strr];
+console.log(charss); // Output: ['S', 'p', 'r', 'e', 'a', 'd']
 
 
 
@@ -9,6 +39,8 @@ console.log(str.charAt(0)); // Output: "H" // Both str[0] and str.charAt(0) retu
 console.log(str.indexOf("World")); // Output: 7 // The indexOf() method returns the index of the first occurrence of the specified value ("World") in the string. In this case, "World" starts at index 7 in the string "Hello, World!".
 
 console.log(str.lastIndexOf("l")); // Output: 10 // The lastIndexOf() method returns the index of the last occurrence of the specified value ("l") in the string. In this case, the last "l" is at index 10 in the string "Hello, World!".
+
+console.log(str.includes("Hello")); // Output: true // The includes() method checks if the string contains the specified value ("Hello"). In this case, it returns true because "Hello" is indeed part of the string "Hello, World!".
 
 console.log(str.slice(0, 5)); // Output: "Hello" // The slice() method extracts a section of the string and returns it as a new string. In this case, it extracts characters from index 0 to index 4 (not including index 5), resulting in "Hello".
 
